@@ -1,0 +1,9 @@
+GIT COMMANDS
+git init <folder> -> init repo
+git pull <repo> -> repo get from github
+git clone <repo> -> init + pull repo
+git add . -> add files before commit
+git commit -m "" -> commit changes
+git remote add <name> <url> -> url to name
+git push <name>/<url> -> upload commit to server
+git status -> what to add/commit
