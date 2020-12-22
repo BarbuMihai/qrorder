@@ -8,3 +8,5 @@
 7) sudo apt-get install ufw -> ubuntu firewall install
 8) sudo apt-get install git -> install git interface
 9) Port forwarding port 80 to rasp IP ( ifconfig )
+
+10) https://www.raspberrypi.org/documentation/remote-access/samba.md -> share folder with Raspberry Pi
