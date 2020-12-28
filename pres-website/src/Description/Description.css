@@ -1,0 +1,25 @@
+.descriptionSection{
+    position: relative;
+    height: 400px;
+    background-color: white;
+    display: flex;
+}
+
+.qrgifScan{
+    position:relative;
+    top: 10%;
+    left:65%;
+}
+
+.descriptionText{
+    position: relative;
+    text-align: justify;
+    top: center;
+    top: 25%;
+}
+
+.appLink{
+    position: relative;
+    top: 80%;
+    left: 27%;
+}

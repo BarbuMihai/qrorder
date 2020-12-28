@@ -1,14 +1,14 @@
 import React from 'react'
 import './Header.css'
-import Background from './Background.js'
+import headerBackground from '../media/videos/finalBackground1080.mp4'
 
 function Header(){
-    return (
-        <div>
-            <Background />
-            <h1 className='WelcomeTitle'>QR Order</h1>
+    return(
+        <div className='headerContainer'>
+            <video className='headerVideo' autoPlay loop muted>
+                <source src={headerBackground} type='video/mp4' />
+            </video>
         </div>
-    );
+    )
 }
-
-export default Header
+export default Header;
