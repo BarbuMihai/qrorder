@@ -1,30 +1,19 @@
 import React from 'react';
-import Description from './Description/Description'
-import Navbar from './Navbar/Navbar'
-import Header from './Header/Header'
-import About from './MenuComponents/About'
-import Download from './MenuComponents/Download'
+import ReactDOM from 'react-dom'
 import './App.css'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-
+import Landing from './LandingArea/landing'
+import Description from './Description/Description'
+import secondPhoto from'./media/photos/tableOrder.jpg'
+import thirdPhoto from'./media/photos/tinyPeopleQR.jpg'
 
 function App(){
   return (
     <div>
-    <Router>
-      <Switch>
-        <div className='App'>
-          <Navbar />
-          <Route path='/' exact component={Header}/>
-          <Route path='/about' exact component={About}/>
-          <Route path='/download' exact component={Download}/>
-        </div> 
-      </Switch>
-    </Router>
-    
+      <Landing />
+      <Description />
+      <img className='secondPhoto' src={secondPhoto}/>
+      <img className='thirdPhoto' src={thirdPhoto}/>
     </div>
-    
-
   );
 }
 
