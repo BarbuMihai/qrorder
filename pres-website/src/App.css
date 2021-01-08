@@ -7,3 +7,13 @@
     width: 100%;
     display: flex;
   }
+
+  nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: darkgrey;
+    color: white;
+}
+

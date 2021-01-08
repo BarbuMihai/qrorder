@@ -1,5 +1,5 @@
 import React from 'react'
-import './Description.css'
+import './AboutPage.css'
 import scanGif from '../media/other/qrorder.png'
 function Description(){
     return(
