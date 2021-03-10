@@ -3,8 +3,8 @@
 2) passwd -> change password ( (default) user : pi / pass : raspberry)
 3) sudo apt update -> update repos
 4) sudo apt full-upgrade -> upgrade stuff
-5) sudo apt-get isntall xrdp -> Remote desktop
-6) sudo apt-get apache2 php mariaDB -> environment server
+5) sudo apt-get install xrdp -> Remote desktop
+6) sudo apt-get install apache2 php mariaDB -> environment server
 7) sudo apt-get install ufw -> ubuntu firewall install
 8) sudo apt-get install git -> install git interface
 9) Port forwarding port 80 to rasp IP ( ifconfig )
@@ -12,3 +12,21 @@
 10) https://www.raspberrypi.org/documentation/remote-access/samba.md -> share folder with Raspberry Pi
 
 sudo mount.cifs //192.168.0.103/RaspberryShare /var/www/RaspberryShare -> mount remote folder
+
+11) Enable Virtual hosting for multiple sites
+sudo mkdir /var/www/qrorder
+sudo nano /var/www/qrorder/index.html
+sudo nano /etc/apache2/sites-available/qrorder.conf
+=> 
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName Qrorder
+    ServerAlias www.qrorder.go.ro
+    DocumentRoot /var/www/qrorder
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+sudo a2ensite qrorder.conf
+sudo systemctl restart apache2
+
