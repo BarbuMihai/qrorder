@@ -1,0 +1,42 @@
+<html class="register_form">
+	<head>
+
+		{% load static %}
+		<title>Qord</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" >
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'presentationSite:presentationPage' %}">Qord</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'presentationSite:presentationPage' %}">Home</a></li>
+					<li><a href="{% url 'presentationSite:templatePage' %}">Template</a></li>
+					<li><a href="{% url 'presentationSite:downloadPage' %}">Download</a></li>
+				</ul>
+			</nav>
+
+
+			<form action="" method="post">
+				{% csrf_token %}
+				{% for field in form.visible_fields %}
+			    <div>
+			        {{ field.label_tag }} <br>
+					{{ field }}<br>
+					<br>
+			    	</div>
+				{% endfor %}
+
+				<input type="submit" value="Register" class="primary" /><br><br>
+				<input type="reset" value="Reset" class="reset" /><br>
+			</form>
+	</body>
+</html>
