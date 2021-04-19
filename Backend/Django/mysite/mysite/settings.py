@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'RestaurantApp.apps.RestaurantappConfig',
     'presentationSite.apps.PresentationsiteConfig',
     'enroll.apps.EnrollConfig',
-    'polls.apps.PollsConfig',
+    'polls2.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

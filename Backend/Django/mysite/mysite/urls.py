@@ -11,6 +11,6 @@ urlpatterns = [
 
     # To be deleted when in production
     path('rest/', include('RestaurantApp.urls')),
-    path('polls/', include('polls.urls')),
+    path('polls2/', include('polls2.urls')),
 
 ]
