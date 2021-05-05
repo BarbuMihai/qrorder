@@ -4,13 +4,24 @@ from django.shortcuts import redirect
 
 
 urlpatterns = [
-    path('', lambda req: redirect('/qrpresentation/')),  # root -> routes to qrpresentation/
-    path('qrpresentation/', include('presentationSite.urls')),  # qrpresentation/
+
+    # root -> routes to qrpresentation/
+    path('', lambda req: redirect('/qrpresentation/')),
+
+    # qrpresentation/
+    path('qrpresentation/', include('presentationSite.urls')),
+
+    # Register Restaurant Application
     path('qrpartners/', include('enroll.urls')),
+
+    # Admin Site
     path('admin/', admin.site.urls),
 
-    # To be deleted when in production
+    # Restaurant Applciation Should return 404 if accessed
     path('rest/', include('RestaurantApp.urls')),
+
+
+    # To be deleted when in production
     path('polls2/', include('polls2.urls')),
 
 ]

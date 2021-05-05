@@ -1,4 +1,4 @@
 from RestaurantApp.models import Restaurant
-from RestaurantApp.FunctionsPool import Functions
+from RestaurantApp.RestaurantFunctions import Functions
 
 Functions.initialize_tables(6)

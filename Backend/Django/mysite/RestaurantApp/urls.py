@@ -6,6 +6,14 @@ app_name = 'RestaurantApp'
 
 urlpatterns = [
 
-    path('<str:code>/', views.index, name='index'),
+    #  rest/
+    path('', views.index, name='index'),
+
+    # rest/post
+    #  must not include in production
+    path('write/', views.post_JSON_django, name='post_JSON_django'),
+
+    #  rest/*table_code*
+    path('<str:code>/', views.return_restaurant_data, name='return_restaurant_data'),
 
 ]
