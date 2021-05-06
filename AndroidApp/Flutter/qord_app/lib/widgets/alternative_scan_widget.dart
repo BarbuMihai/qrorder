@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 import 'package:barcode_scan_fix/barcode_scan.dart';
 import 'package:qord_app/api/rest_api.dart';
-import 'package:qord_app/pages/alternative_scan.dart';
+
+import 'package:qord_app/pages/welcome_qord_page.dart';
+import 'package:qord_app/pages/alternative_scan_page.dart';
+import 'package:qord_app/pages/write_manually_page.dart';
 
 
 class AlternativeScanWidget extends StatelessWidget {
-  // Color backgroundColor = Color(0xFFFFCF6F);
   Color optionButtonColor;
 
   AlternativeScanWidget({Color buttonsColor}){
@@ -14,7 +16,6 @@ class AlternativeScanWidget extends StatelessWidget {
   }
 
   RestApi restObj = new RestApi();
-
 
   Future<String> return_qr_scan_result() async {
     String codeScanner = await BarcodeScanner.scan();
@@ -26,30 +27,28 @@ class AlternativeScanWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SizedBox(
-              width: 180.0,
-              height: 150.0,
+            Expanded(
+              flex: 1,
               child: TextButton(
                   onPressed: () async {
                     String qr_scan = await return_qr_scan_result();
                     print(qr_scan);
                     Map server_response = await restObj.getRestaurantDetails(qr_scan);
                     if (restObj.statusCode == 200){
-
                       print("RESPONSE = " + server_response.toString());
+                      Navigator.popAndPushNamed(
+                          context,
+                          ApplicationWelcome.route,
+                      );
                     }
                     if (restObj.statusCode != 200){
                       print('ERROR ' + restObj.statusCode.toString());
-
-                      Navigator.push(
+                      Navigator.popAndPushNamed(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => AlternativeScan(
-                              error_code: restObj.statusCode,
-                            )
-                        ),
+                        AlternativeScan.route,
+                        arguments: {'error_code': restObj.statusCode}
                       );
                     }
                   },
@@ -74,18 +73,19 @@ class AlternativeScanWidget extends StatelessWidget {
               ),
             ),
             Container(
-                height: 100,
+                height: 90,
                 child: VerticalDivider(
                     thickness: 2,
                 )
             ),
-            SizedBox(
-              width: 180.0,
-              height: 150.0,
+            Expanded(
+              flex: 1,
               child: TextButton(
                   onPressed: () async {
-                    String qr_scan = await return_qr_scan_result();
-                    print(qr_scan);
+                    Navigator.pushNamed(
+                        context,
+                        WriteCode.route,
+                    );
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

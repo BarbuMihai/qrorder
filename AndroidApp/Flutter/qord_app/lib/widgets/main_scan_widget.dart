@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 import 'package:barcode_scan_fix/barcode_scan.dart';
 import 'package:qord_app/api/rest_api.dart';
-import 'package:qord_app/pages/alternative_scan.dart';
+import 'package:qord_app/pages/alternative_scan_page.dart';
 
 
 class MainScanWidget extends StatelessWidget {
-  // Color backgroundColor = Color(0xFFFFCF6F);
   Color optionButtonColor;
 
   MainScanWidget({Color buttonsColor}){
     optionButtonColor = buttonsColor;
-
   }
 
   RestApi restObj = new RestApi();
-
 
   Future<String> return_qr_scan_result() async {
     String codeScanner = await BarcodeScanner.scan();
@@ -41,14 +38,11 @@ class MainScanWidget extends StatelessWidget {
                         print("RESPONSE = " + server_response.toString());
                       }
                       else{
-                        print('ERROR 404');
-                        Navigator.push(
+                        print('ERROR: ' + restObj.statusCode.toString() );
+                        Navigator.pushNamed(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => AlternativeScan(
-                                error_code: restObj.statusCode,
-                              )
-                          ),
+                          '/alternativeScan',
+                          arguments: {'error_code': restObj.statusCode}
                         );
                       }
                     },

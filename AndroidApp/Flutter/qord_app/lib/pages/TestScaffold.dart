@@ -8,21 +8,30 @@ class TestScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff1b72d),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-
-            child: Image.asset(
-              'assets/app_photos/carrot_food_croped.png',
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: Image.asset(
+                  "assets/app_photos/tomato_thin.png",
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 100,),
-          MainScanWidget(
-            buttonsColor: Color(0xffffffff),
+          AlternativeScanWidget(
+            buttonsColor: Color(0xf2a2a2a),
           ),
-          SizedBox(height: 50,)
+          Row(
+            children: [
+              Expanded(
+                child: Image.asset(
+                  'assets/app_photos/cropped_donut.png',
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
