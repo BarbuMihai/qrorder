@@ -65,10 +65,11 @@ class _ApplicationWelcomeState extends State<ApplicationWelcome> {
                   ],
                 ),
               ),
-              Container(
-                height: imageContainerSize,
-                child: Image.asset(
-                  'assets/app_photos/desert.png'
+              Expanded(
+                child: Container(
+                  child: Image.asset(
+                    'assets/app_photos/desert.png'
+                  ),
                 ),
               ),
             ],

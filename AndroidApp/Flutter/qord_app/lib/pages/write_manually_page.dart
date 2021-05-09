@@ -3,6 +3,7 @@ import 'package:qord_app/api/rest_api.dart';
 
 import 'package:qord_app/pages/alternative_scan_page.dart';
 import 'package:qord_app/pages/welcome_qord_page.dart';
+import 'package:qord_app/pages/menu_page.dart';
 
 class WriteCode extends StatelessWidget {
 
@@ -12,6 +13,29 @@ class WriteCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void submit_button(text) async{
+      print(text);
+      Map server_response = await restObj.getRestaurantDetails(text);
+      if (restObj.statusCode == 200){
+        print("RESPONSE = " + server_response.toString());
+        Navigator.pop(context);
+        Navigator.popAndPushNamed(
+          context,
+          MenuPage.route,
+        );
+      }
+      else{
+        print('ERROR: ' + restObj.statusCode.toString());
+        Navigator.pop(context);
+        Navigator.popAndPushNamed(
+            context,
+            AlternativeScan.route,
+            arguments: {'error_code': restObj.statusCode}
+        );
+      }
+    }
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,23 +59,7 @@ class WriteCode extends StatelessWidget {
                 SizedBox(height: 10),
                 TextField(
                   onSubmitted: (qr_text) async {
-                      print(qr_text);
-                      Map server_response = await restObj.getRestaurantDetails(qr_text);
-                      if (restObj.statusCode == 200){
-                        print("RESPONSE = " + server_response.toString());
-                        Navigator.popAndPushNamed(
-                            context,
-                            ApplicationWelcome.route,
-                        );
-                      }
-                      else{
-                        print('ERROR: ' + restObj.statusCode.toString() );
-                        Navigator.popAndPushNamed(
-                            context,
-                            AlternativeScan.route,
-                            arguments: {'error_code': restObj.statusCode}
-                        );
-                      }
+                    submit_button(qr_text);
                     },
                   decoration: InputDecoration(
                     border: OutlineInputBorder(

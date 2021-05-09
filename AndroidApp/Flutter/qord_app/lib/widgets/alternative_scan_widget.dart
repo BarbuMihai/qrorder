@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+
 import 'package:barcode_scan_fix/barcode_scan.dart';
 import 'package:qord_app/api/rest_api.dart';
 
 import 'package:qord_app/pages/welcome_qord_page.dart';
 import 'package:qord_app/pages/alternative_scan_page.dart';
 import 'package:qord_app/pages/write_manually_page.dart';
+import 'package:qord_app/pages/menu_page.dart';
 
 
 class AlternativeScanWidget extends StatelessWidget {
@@ -25,6 +26,33 @@ class AlternativeScanWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void scan_button_function() async{
+      String qr_scan = await return_qr_scan_result();
+      print(qr_scan);
+      Map server_response = await restObj.getRestaurantDetails(qr_scan);
+      if (restObj.statusCode == 200){
+        print("RESPONSE = " + server_response.toString());
+
+        Navigator.popAndPushNamed(
+          context,
+          MenuPage.route,
+        );
+      }
+      if (restObj.statusCode != 200){
+        print('ERROR ' + restObj.statusCode.toString());
+        Navigator.popAndPushNamed(
+          context,
+          ApplicationWelcome.route,
+        );
+        Navigator.popAndPushNamed(
+            context,
+            AlternativeScan.route,
+            arguments: {'error_code': restObj.statusCode}
+        );
+      }
+    }
+
     return Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -33,24 +61,7 @@ class AlternativeScanWidget extends StatelessWidget {
               flex: 1,
               child: TextButton(
                   onPressed: () async {
-                    String qr_scan = await return_qr_scan_result();
-                    print(qr_scan);
-                    Map server_response = await restObj.getRestaurantDetails(qr_scan);
-                    if (restObj.statusCode == 200){
-                      print("RESPONSE = " + server_response.toString());
-                      Navigator.popAndPushNamed(
-                          context,
-                          ApplicationWelcome.route,
-                      );
-                    }
-                    if (restObj.statusCode != 200){
-                      print('ERROR ' + restObj.statusCode.toString());
-                      Navigator.popAndPushNamed(
-                        context,
-                        AlternativeScan.route,
-                        arguments: {'error_code': restObj.statusCode}
-                      );
-                    }
+                    scan_button_function();
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
