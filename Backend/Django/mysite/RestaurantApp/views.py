@@ -8,16 +8,16 @@ from django.http import HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 
 from django.middleware.csrf import get_token
-
+# import time
 
 def index(request):
     return HttpResponse('Index')
-
 
 @csrf_exempt
 def return_restaurant_data(request, code):
     try:
         if request.method == 'GET':
+            # time.sleep(2)
             return JsonResponse(data=RestaurantInterface.create_Restaurant_JSON_data(code))
         if request.method == 'POST':
             # get_token(request)

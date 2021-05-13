@@ -32,7 +32,8 @@ dependencies:
   toast: ^0.1.5
   barcode_scan_fix: ^1.0.2
   flutter_spinkit: "^4.1.2"
-  
+  expansion_tile_card: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

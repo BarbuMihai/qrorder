@@ -7,6 +7,7 @@ import 'package:qord_app/pages/welcome_qord_page.dart';
 import 'package:qord_app/pages/alternative_scan_page.dart';
 import 'package:qord_app/pages/write_manually_page.dart';
 import 'package:qord_app/pages/menu_page.dart';
+import 'package:qord_app/pages/loading_page.dart';
 
 
 class AlternativeScanWidget extends StatelessWidget {
@@ -30,7 +31,9 @@ class AlternativeScanWidget extends StatelessWidget {
     void scan_button_function() async{
       String qr_scan = await return_qr_scan_result();
       print(qr_scan);
+      LoadingPage.pushLoadingPage(context);
       Map server_response = await restObj.getRestaurantDetails(qr_scan);
+      Navigator.pop(context);
       if (restObj.statusCode == 200){
         print("RESPONSE = " + server_response.toString());
 

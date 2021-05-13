@@ -5,6 +5,8 @@ import 'package:qord_app/pages/alternative_scan_page.dart';
 import 'package:qord_app/pages/welcome_qord_page.dart';
 import 'package:qord_app/pages/menu_page.dart';
 
+import 'loading_page.dart';
+
 class WriteCode extends StatelessWidget {
 
   static const route = '/writeManually';
@@ -13,16 +15,18 @@ class WriteCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     void submit_button(text) async{
       print(text);
+      LoadingPage.pushLoadingPage(context);
       Map server_response = await restObj.getRestaurantDetails(text);
+      Navigator.pop(context);
       if (restObj.statusCode == 200){
         print("RESPONSE = " + server_response.toString());
         Navigator.pop(context);
         Navigator.popAndPushNamed(
           context,
           MenuPage.route,
+            arguments: {'response' : server_response}
         );
       }
       else{

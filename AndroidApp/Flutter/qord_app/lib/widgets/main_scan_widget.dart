@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:qord_app/pages/loading_page.dart';
 
 import 'package:qord_app/pages/menu_page.dart';
 import 'package:barcode_scan_fix/barcode_scan.dart';
 import 'package:qord_app/api/rest_api.dart';
 import 'package:qord_app/pages/alternative_scan_page.dart';
+import 'package:qord_app/pages/testScaffold.dart';
 import 'package:qord_app/pages/welcome_qord_page.dart';
 
 
 class MainScanWidget extends StatelessWidget {
   Color optionButtonColor;
-  bool loading = false;
 
   MainScanWidget({Color buttonsColor}){
     optionButtonColor = buttonsColor;
@@ -25,12 +26,14 @@ class MainScanWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+
     void scan_button_function() async{
       String qr_scan = await return_qr_scan_result();
       print(qr_scan);
-      loading = true;
+      // pushLoadingScreen();
+      LoadingPage.pushLoadingPage(context);
       Map server_response = await restObj.getRestaurantDetails(qr_scan);
-      loading = false;
+      Navigator.pop(context);
       if (restObj.statusCode == 200){
         print(server_response);
         Navigator.pushNamed(

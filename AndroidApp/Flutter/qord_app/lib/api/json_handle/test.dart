@@ -63,5 +63,5 @@ Map item = {
 
 void main(){
   Menu m = Menu(menuJSON: item);
-  print(m.menuCategories());
+  print(m.menuCateg[0].categoryItems.length);
 }

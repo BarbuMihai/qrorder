@@ -4,8 +4,8 @@ import 'package:http/http.dart';
 import 'dart:convert';
 
 class RestApi {
-  String endpoint = 'http://10.0.2.2:8000/';
-  // String endpoint = 'http://192.168.0.103:8000/';
+  // String endpoint = 'http://10.0.2.2:8000/';
+  String endpoint = 'http://192.168.0.103:8000/';
   String restaurantApi = 'rest/';
   int statusCode;
 
