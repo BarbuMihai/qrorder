@@ -17,7 +17,7 @@ void main() {
       scaffoldBackgroundColor: const Color(0xffcbcbcb),
       fontFamily: 'Georgia'
     ),
-    initialRoute: TestScaffold.route,
+    // initialRoute: TestScaffold.route,
     routes: {
       LoadingPage.route: (context) => LoadingPage(),
       TestScaffold.route: (context) => TestScaffold(),
