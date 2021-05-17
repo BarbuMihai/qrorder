@@ -2,7 +2,7 @@ class MenuItem {
   String itemName;
   int itemCalories;
   int itemWeight;
-  int itemPrice;
+  double itemPrice;
   List<String> ingredients;
   List<String> allergens;
 

@@ -40,6 +40,7 @@ class AlternativeScanWidget extends StatelessWidget {
         Navigator.popAndPushNamed(
           context,
           MenuPage.route,
+          arguments: {'response': server_response},
         );
       }
       if (restObj.statusCode != 200){

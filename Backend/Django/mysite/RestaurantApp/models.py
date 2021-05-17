@@ -39,7 +39,7 @@ class MenuItem(models.Model):
     food_name = models.CharField(max_length=50)
     food_calories = models.PositiveIntegerField()
     food_weight = models.PositiveIntegerField()
-    food_price = models.PositiveIntegerField()
+    food_price = models.FloatField()
 
     def __str__(self):
         return self.food_name + ' (' + self.restaurant.restaurant_name + ')'

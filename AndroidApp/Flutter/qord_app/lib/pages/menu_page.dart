@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qord_app/api/json_handle/menu_category.dart';
 import 'package:qord_app/api/json_handle/menu.dart';
 import 'package:qord_app/pages/food_items_page.dart';
-import 'package:qord_app/widgets/place_order_bar.dart';
-import 'package:qord_app/api/order_api/order_class.dart';
-
+import 'package:qord_app/widgets/go_to_cart_widget.dart';
 
 class MenuPage extends StatefulWidget {
 
@@ -23,78 +21,147 @@ class _MenuPageState extends State<MenuPage> {
 
   Menu menuObj;
 
-  Map item = {
-    "restaurant_name": "MBB's Burger & More",
-    "table_index": 8,
-    "smoking_allowed": false,
-    "restaurant_description": "Bringing the real Burger tradition to life",
-    "menu_categories": [
-      {
-        "menu_category_name": "Burger",
-        "items_list": [
-          {
-            "item_name": "BBQBurger",
-            "item_calories": 600,
-            "item_weight": 600,
-            "item_price": 40,
-            "ingredients": ["Bread", "Angus", "Sare", "Mayo", "Pickles"],
-            "allergen": ["Eggs", "Wheat"]
-          },
-          {
-            "item_name": "Onion Burger",
-            "item_calories": 12,
-            "item_weight": 23,
-            "item_price": 124,
-            "ingredients": [],
-            "allergen": []
-          }
-        ]
-      },
-      {"menu_category_name": "Pizza", "items_list": []},
-      {
-        "menu_category_name": "Desert",
-        "items_list": [
-          {
-            "item_name": "Beef desert",
-            "item_calories": 400,
-            "item_weight": 200,
-            "item_price": 21,
-            "ingredients": [],
-            "allergen": []
-          }
-        ]
-      },
-      {
-        "menu_category_name": "Main Course",
-        "items_list": [
-          {
-            "item_name": "Somon Fille",
-            "item_calories": 300,
-            "item_weight": 200,
-            "item_price": 35,
-            "ingredients": ['Somon'],
-            "allergen": ["Fish"]
-          }
-        ]
-      },
-      {"menu_category_name": "Salads", "items_list": []},
-      {"menu_category_name": "Coffee", "items_list": []},
-      {"menu_category_name": "Soup", "items_list": []}
-    ]
-  };
-
-  FinalOrder final_order;
+  // Map item = {
+  //   "restaurant_name": "MBB's Burger & More",
+  //   "table_index": 8,
+  //   "smoking_allowed": false,
+  //   "restaurant_description": "Bringing the real Burger tradition to life",
+  //   "menu_categories": [
+  //     {
+  //       "menu_category_name": "Burger",
+  //       "items_list": [
+  //         {
+  //           "item_name": "BBQBurger",
+  //           "item_calories": 600,
+  //           "item_weight": 600,
+  //           "item_price": 40.0,
+  //           "ingredients": [
+  //             "Bread",
+  //             "Angus",
+  //             "Sare",
+  //             "Mayo",
+  //             "Pickles",
+  //             "BBQ Sauce"
+  //           ],
+  //           "allergen": [
+  //             "Eggs",
+  //             "Wheat",
+  //             "Milk"
+  //           ]
+  //         },
+  //         {
+  //           "item_name": "Onion Burger",
+  //           "item_calories": 12,
+  //           "item_weight": 23,
+  //           "item_price": 124.0,
+  //           "ingredients": [
+  //             "Grilled Onions",
+  //             "Bread",
+  //             "Mayo",
+  //             "Porc"
+  //           ],
+  //           "allergen": []
+  //         },
+  //         {
+  //           "item_name": "Cheeseburger",
+  //           "item_calories": 500,
+  //           "item_weight": 400,
+  //           "item_price": 30.0,
+  //           "ingredients": [
+  //             "Bread",
+  //             "Mayo",
+  //             "Cheese",
+  //             "Beef",
+  //             "Tomato"
+  //           ],
+  //           "allergen": []
+  //         },
+  //         {
+  //           "item_name": "Hamburger",
+  //           "item_calories": 450,
+  //           "item_weight": 300,
+  //           "item_price": 29.5,
+  //           "ingredients": [],
+  //           "allergen": []
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       "menu_category_name": "Pizza",
+  //       "items_list": [
+  //         {
+  //           "item_name": "Diavola",
+  //           "item_calories": 800,
+  //           "item_weight": 500,
+  //           "item_price": 35.0,
+  //           "ingredients": [
+  //             "Pizza dough",
+  //             "Tomato Sauce",
+  //             "Mushrooms",
+  //             "Prosciutto",
+  //             "Peperonni",
+  //             "Jalapenos",
+  //             "Chilli Sauce"
+  //           ],
+  //           "allergen": []
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       "menu_category_name": "Desert",
+  //       "items_list": [
+  //         {
+  //           "item_name": "Beef desert",
+  //           "item_calories": 400,
+  //           "item_weight": 200,
+  //           "item_price": 21.0,
+  //           "ingredients": [],
+  //           "allergen": []
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       "menu_category_name": "Main Course",
+  //       "items_list": [
+  //         {
+  //           "item_name": "Somon Fille",
+  //           "item_calories": 300,
+  //           "item_weight": 200,
+  //           "item_price": 35.0,
+  //           "ingredients": [],
+  //           "allergen": [
+  //             "Fish"
+  //           ]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       "menu_category_name": "Salads",
+  //       "items_list": []
+  //     },
+  //     {
+  //       "menu_category_name": "Coffee",
+  //       "items_list": []
+  //     },
+  //     {
+  //       "menu_category_name": "Soup",
+  //       "items_list": []
+  //     }
+  //   ]
+  // };
 
   @override
   Widget build(BuildContext context) {
 
     final Map response = ModalRoute.of(context).settings.arguments;
     menuObj = Menu(menuJSON: response['response']);
+
     // Menu menuObj = Menu(menuJSON: item);
 
 
     List<String> categories = menuObj.menuCategories();
     List<MenuCategory> categInstances = menuObj.menuCateg;
+
     Widget smokeIndicator(){
       if(menuObj.smoke == false){
         return CircleAvatar(
@@ -109,7 +176,6 @@ class _MenuPageState extends State<MenuPage> {
           backgroundColor: smokingAllowedColor,
           child: Icon(
             Icons.smoking_rooms,
-
           ),
         );
       }
@@ -197,7 +263,7 @@ class _MenuPageState extends State<MenuPage> {
             ]
             ),
           ),
-          // OrderBar(),
+          GoToCart(),
         ],
       ),
     );

@@ -33,6 +33,7 @@ dependencies:
   barcode_scan_fix: ^1.0.2
   flutter_spinkit: "^4.1.2"
   expansion_tile_card: ^1.1.0
+  provider: ^4.3.3
 
 dev_dependencies:
   flutter_test:

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:qord_app/api/json_handle/menu_item.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
+import 'package:qord_app/api/order_api/order_model.dart';
+import 'package:qord_app/main.dart';
 import 'package:qord_app/widgets/boxed_text_widget.dart';
-import 'package:qord_app/api/order_api/order_class.dart';
-
+import 'package:qord_app/pages/menu_page.dart';
+import 'package:qord_app/widgets/add_order_bottom_sheet.dart';
 
 class CategoryCard extends StatelessWidget {
   MenuItem item;
+
+  Color buttonColor = Colors.greenAccent;
+  Color avg = Color(0xff483426);
 
   CategoryCard({this.item});
 
@@ -30,7 +35,6 @@ class CategoryCard extends StatelessWidget {
         );
       }
     }
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 4,
@@ -42,7 +46,7 @@ class CategoryCard extends StatelessWidget {
         expandedColor: Colors.white,
         key: cardA,
         leading: CircleAvatar(
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: buttonColor,
           child: IconButton(
             icon: const Icon(
               Icons.add,
@@ -50,8 +54,12 @@ class CategoryCard extends StatelessWidget {
             ),
             tooltip: 'Add Item to Order',
             onPressed: () {
-              //TODO Add functionality here
-
+              showModalBottomSheet(context: context,
+                  builder: (context){
+                  return OrderBottomSheet(
+                    selectedItem: item,
+                  );
+              });
             },
           ),
         ),
