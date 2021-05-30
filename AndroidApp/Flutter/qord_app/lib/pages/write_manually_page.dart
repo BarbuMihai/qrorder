@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:qord_app/api/rest_api.dart';
+import 'file:///C:/PROJEKTE/Licenta/AndroidApp/Flutter/qord_app/lib/api/rest/rest_api.dart';
 
 import 'package:qord_app/pages/alternative_scan_page.dart';
-import 'package:qord_app/pages/welcome_qord_page.dart';
 import 'package:qord_app/pages/menu_page.dart';
 
 import 'loading_page.dart';
@@ -89,7 +88,7 @@ class WriteCode extends StatelessWidget {
             ),
           ),
         Image.asset(
-          'assets/app_photos/tomato_thin.png'
+          'assets/app_photos/tomato_thin_flipped.png'
         ),
         ],
       ),

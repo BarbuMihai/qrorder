@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qord_app/api/json_handle/menu_item.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-import 'package:qord_app/api/order_api/order_model.dart';
-import 'package:qord_app/main.dart';
 import 'package:qord_app/widgets/boxed_text_widget.dart';
-import 'package:qord_app/pages/menu_page.dart';
 import 'package:qord_app/widgets/add_order_bottom_sheet.dart';
 
 class CategoryCard extends StatelessWidget {

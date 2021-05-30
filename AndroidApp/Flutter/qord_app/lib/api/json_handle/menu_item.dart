@@ -25,4 +25,11 @@ class MenuItem {
     ingredients = json['ingredients'].cast<String>();
     allergens = json['allergen'].cast<String>();
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['item_name'] = this.itemName;
+    data['item_price'] = this.itemPrice;
+    return data;
+  }
 }

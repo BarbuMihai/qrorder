@@ -2,11 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce07e28f-2ef6-408c-826d-ab8c93dc5295" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Scripts/flaskStart.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scripts/flexample.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scripts/hello.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/PresentationSite/QrSiteFinal/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/PresentationSite/QrSiteFinal/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/PresentationSite/QrSiteFinal/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/PresentationSite/QrSiteFinal/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/assets/Icons/pizza.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/rest/rest_api.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/rest/sockets.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/waiting_lobby_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/OrdersApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/json_handle/menu_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/json_handle/menu_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/order_api/order_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/order_api/order_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/api/rest_api.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/alternative_scan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/alternative_scan_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/cart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/cart_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/testScaffold.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/testScaffold.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/welcome_qord_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/welcome_qord_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/write_manually_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/pages/write_manually_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/widgets/alternative_scan_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/widgets/alternative_scan_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/widgets/cart_item_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/widgets/cart_item_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/widgets/main_scan_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/lib/widgets/main_scan_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidApp/Flutter/qord_app/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/OrdersApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/OrdersApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +43,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,5 +66,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

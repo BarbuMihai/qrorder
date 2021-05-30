@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:qord_app/pages/loading_page.dart';
+import 'package:provider/provider.dart';
 
+import 'package:qord_app/pages/loading_page.dart';
 import 'package:qord_app/pages/menu_page.dart';
-import 'package:barcode_scan_fix/barcode_scan.dart';
-import 'package:qord_app/api/rest_api.dart';
 import 'package:qord_app/pages/alternative_scan_page.dart';
-import 'package:qord_app/pages/testScaffold.dart';
 import 'package:qord_app/pages/welcome_qord_page.dart';
+
+import 'package:barcode_scan_fix/barcode_scan.dart';
+import 'package:qord_app/api/order_api/order_list.dart';
+import 'file:///C:/PROJEKTE/Licenta/AndroidApp/Flutter/qord_app/lib/api/rest/rest_api.dart';
+
 
 
 class MainScanWidget extends StatelessWidget {
@@ -29,6 +32,7 @@ class MainScanWidget extends StatelessWidget {
 
     void scan_button_function() async{
       String qr_scan = await return_qr_scan_result();
+      context.read<OrderList>().tableCode = qr_scan;
       print(qr_scan);
       // pushLoadingScreen();
       LoadingPage.pushLoadingPage(context);

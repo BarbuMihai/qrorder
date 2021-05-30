@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
+
+import 'package:qord_app/api/rest/rest_api.dart';
 import 'package:qord_app/api/order_api/order_model.dart';
 import 'package:qord_app/api/order_api/order_list.dart';
+import 'package:qord_app/pages/waiting_lobby_page.dart';
 import 'package:qord_app/widgets/cart_item_widget.dart';
+import 'package:qord_app/pages/loading_page.dart';
+
+import 'package:qord_app/api/rest/statusCodes.dart';
 
 
 class CartPage extends StatefulWidget {
@@ -112,7 +119,7 @@ class _CartPageState extends State<CartPage> {
                             horizontal: 20,
                             vertical: 6,
                           ),
-                          child: Text(totalPrice.toString() + ' Lei',
+                          child: Text(totalPrice.toStringAsFixed(2) + ' Lei',
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -135,6 +142,10 @@ class _CartPageState extends State<CartPage> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Icon(Icons.restaurant_menu,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(width: 10),
                                   Text('Place Order',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -143,8 +154,33 @@ class _CartPageState extends State<CartPage> {
                                   ),
                                 ],
                               ),
-                              onPressed: () {
-                                //TODO Post Order to server
+                              onPressed: () async{
+                                String ojs = context.read<OrderList>().createOrderListDataPacket();
+                                RestApi r = RestApi();
+                                LoadingPage.pushLoadingPage(context);
+                                Map postResponse = await r.sendOrderToServer(ojs);
+                                print('Post Response: ' + postResponse.toString());
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                                if(r.statusCode == 200){
+                                  context.read<OrderList>().orderAndEmpty();
+                                  Navigator.pushNamed(context, WaitingLobby.route);
+                                  context.read<OrderList>().orderId = postResponse['order_id'];
+                                  print ("CURRENT ORDER ID = " + context.read<OrderList>().orderId.toString());
+
+                                }
+                                else {
+                                  Toast.show(
+                                      'Error: '
+                                          + r.statusCode.toString()
+                                          + ' '
+                                          + StatusCodes.codes[r.statusCode],
+                                      context,
+                                      duration: Toast.LENGTH_LONG,
+                                      gravity:  Toast.BOTTOM,
+                                      backgroundRadius: 20
+                                  );
+                                }
                               }
                           ),
                         ),

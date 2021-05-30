@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:barcode_scan_fix/barcode_scan.dart';
+import 'package:provider/provider.dart';
+
 import 'package:toast/toast.dart';
-import 'package:qord_app/api/rest_api.dart';
+import 'package:barcode_scan_fix/barcode_scan.dart';
+
+import 'package:qord_app/api/order_api/order_list.dart';
+import 'file:///C:/PROJEKTE/Licenta/AndroidApp/Flutter/qord_app/lib/api/rest/rest_api.dart';
 import 'package:qord_app/pages/alternative_scan_page.dart';
 import 'package:qord_app/widgets/main_scan_widget.dart';
 

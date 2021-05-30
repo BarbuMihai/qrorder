@@ -24,4 +24,6 @@ urlpatterns = [
     # To be deleted when in production
     path('polls2/', include('polls2.urls')),
 
+    path('orderapi/', include('OrdersApp.urls')),
+
 ]

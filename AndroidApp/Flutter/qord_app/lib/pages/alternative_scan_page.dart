@@ -29,12 +29,15 @@ class AlternativeScan extends StatelessWidget {
             ),
             Column(
               children: [
-                Text('OOPS!',
-                  style: TextStyle(
-                      fontSize: 20,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('OOPS :(',
+                    style: TextStyle(
+                        fontSize: 20,
+                    ),
                   ),
                 ),
-                Text('Seems like the Qr you just scanned is invalid!\n',
+                Text('Seems like something went wrong.\n',
                 style: TextStyle(
                   fontSize: 16,
                 ),
