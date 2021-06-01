@@ -30,7 +30,7 @@ class _CartItemState extends State<CartItem> {
         child: Card(
           elevation: 4,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -139,9 +139,6 @@ class _CartItemState extends State<CartItem> {
                     ),
                   ),
                 ],
-              ),
-              SizedBox(
-                width: 70,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

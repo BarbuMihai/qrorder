@@ -1,3 +1,0 @@
-npx create-react-app %cd% -> create react environment in folder
-npm run start -> start server to see real time work
-npm run build -> compile app 
