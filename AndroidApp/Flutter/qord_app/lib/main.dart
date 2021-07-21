@@ -22,7 +22,7 @@ void main() {
       ChangeNotifierProvider(create: (_) => OrderList()),
     ],
     child: MaterialApp(
-      initialRoute: MenuPage.route,
+      // initialRoute: MenuPage.route,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffcbcbcb),

@@ -48,7 +48,6 @@ def index(request):
             )
             food_of_order.save()
 
-
         # print(request.body)
         return JsonResponse({'order_id': new_order.id})
 

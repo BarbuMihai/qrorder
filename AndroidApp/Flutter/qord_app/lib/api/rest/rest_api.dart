@@ -8,15 +8,15 @@ class RestApi {
   String endpoint = 'http://10.0.2.2:8000/';
   // String endpoint = 'http://127.0.0.1:8000/';
   // String endpoint = 'http://192.168.0.103:8000/';
+  // String endpoint = 'http://192.168.0.112:5000/';
 
   String restaurantDetailsApi = 'rest/';
-
   String orderApi = 'orderapi/';
   String requestPaymentLink = 'payment/';
 
   int statusCode;
 
-  static const int restaurant_details_timeout = 3000;
+  static const int restaurant_details_timeout = 6000;
   static const int post_data_packet_timeout = 6000;
 
   // In order for this to work, in "\android\app\src\main\AndroidManifest.xml"

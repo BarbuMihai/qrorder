@@ -8,10 +8,13 @@ from django.http import HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 
 from django.middleware.csrf import get_token
+
+
 # import time
 
 def index(request):
     return HttpResponse('Index')
+
 
 @csrf_exempt
 def return_restaurant_data(request, code):
@@ -35,4 +38,3 @@ def post_JSON_django(request):
 
     if request.method == "POST":
         return HttpResponseNotAllowed('Not Allowed')
-

@@ -157,10 +157,10 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
 
-    // final Map response = ModalRoute.of(context).settings.arguments;
-    // menuObj = Menu(menuJSON: response['response']);
-    //
-    Menu menuObj = Menu(menuJSON: item);
+    final Map response = ModalRoute.of(context).settings.arguments;
+    menuObj = Menu(menuJSON: response['response']);
+
+    // Menu menuObj = Menu(menuJSON: item);
 
     List<String> categories = menuObj.menuCategories();
     List<MenuCategory> categInstances = menuObj.menuCateg;
